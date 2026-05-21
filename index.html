@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Brother 🎂</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <canvas id="confetti"></canvas>
+
+    <nav>
+        <div class="logo"> ANDY BEST</div>
+
+        <div class="menu-toggle" id="menuToggle">
+            ☰
+        </div>
+
+        <ul id="navLinks">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#message">Message</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#countdown">Countdown</a></li>
+        </ul>
+    </nav>
+
+    <button class="music-btn" id="musicBtn">
+        ▶️
+    </button>
+    <audio id="music" loop>
+        <source src="assets/audio/birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <section class="hero" id="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🎉 Special Birthday Celebration
+            </div>
+
+            <h1>
+                Happy Birthday
+                <span class="gold">[BEST BRO]</span>
+            </h1>
+
+            <h2 id="typing"></h2>
+
+            <p>
+                Today is all about celebrating you.
+                May this year bring success, happiness,
+                unforgettable memories and endless blessings.
+            </p>
+
+            <button class="glow-btn" onclick="launchFireworks()">
+                🎆 Celebrate
+            </button>
+
+        </div>
+
+    </section>
+    <section id="message">
+
+        <h2 class="section-title">
+            ❤️ Birthday Message
+        </h2>
+
+        <div class="glass-card message-container">
+
+            <div class="message-image">
+                <img src="assets/img/IMG_9774.JPG.jpeg" alt="My Brother">
+            </div>
+
+            <div class="message-content">
+
+                <h3>To My Brother, My Biggest Supporter ❤️</h3>
+
+                <p>
+                    Happy Birthday, Bro.
+                </p>
+
+                <p>
+                    Today is your day, but I want to use this moment to thank you for everything you have done for me.
+                </p>
+
+                <p>
+                    You are more than a brother to me. You are my adviser, my teacher, my supporter, and one of the
+                    greatest blessings God has given to our family.
+                </p>
+                <p>
+                    You were the person who introduced me to technology and made me believe that I could become
+                    something great. When I doubted myself, you believed in me. When I was confused, you guided me.
+                </p>
+                <p>
+                    I pray that God rewards every sacrifice you have made, every tear you have hidden and every good
+                    thing you have done for others.
+                </p>
+                <p>
+                    May this special birthday bring you happiness,
+                    success, good health, and countless blessings.
+                </p>
+
+                <p>
+                    Keep smiling, keep shining, and keep achieving
+                    greatness.
+                </p>
+                <p>I am proud to call you my brother.</p>
+
+                <h4>Happy Birthday, Ghana soldier</h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="gallery">
+
+        <h2 class="section-title">
+            Memory Gallery
+        </h2>
+
+        <div class="gallery">
+
+            <img src="assets/img/img2.jpg" alt="">
+            <img src="assets/img/IMG_2698.PNG" alt="">
+            <img src="assets/img/GTCG7566.PNG" alt="">
+            <img src="assets/img/img5 - Copy.jpg" alt="">
+            <img src="assets/img/img6 - Copy.jpg" alt="">
+            <img src="assets/img/img7 - Copy.jpg" alt="">
+            <img src="assets/img/img8 - Copy.jpg" alt="">
+            <img src="assets/img/IMG_8901.JPG" alt="">
+
+        </div>
+
+    </section>
+    <h1 class="text-center" style="text-align: center; color: #ffd700;">ANDY BEST</h1>
+
+    <div class="gallery">
+        <img src="assets/img/IMG_9762.JPG.jpeg" alt="" data-message="🎉 Happy Birthday Bro! 🎂">
+
+        <img src="assets/img/IMG_9779.JPG.jpeg" alt="" data-message="❤️ We Love You Bro!">
+
+        <img src="assets/img/IMG_9764.JPG.jpeg" alt="" data-message="🎁 Wishing You Success & Happiness!">
+
+        <img src="assets/img/IMG_9774.JPG.jpeg" alt="" data-message="🥳 Enjoy Your Special Day!">
+
+    </div>
+
+    <footer>
+        Made With ❤️ For My Brother
+    </footer>
+
+    <script src="script.js">
+        /* =====================================
+    TYPING EFFECT
+ ===================================== */
+
+        const text = "Wishing You Happiness, Success & Endless Blessings";
+        let typingIndex = 0;
+
+        function typing() {
+
+            const typingElement =
+                document.getElementById("typing");
+
+            if (!typingElement) return;
+
+            if (typingIndex < text.length) {
+
+                typingElement.innerHTML +=
+                    text.charAt(typingIndex);
+
+                typingIndex++;
+
+                setTimeout(typing, 60);
+            }
+        }
+
+        typing();
+
+        /* =====================================
+           MOBILE MENU
+        ===================================== */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        if (menuToggle && navLinks) {
+
+            menuToggle.addEventListener("click", () => {
+
+                navLinks.classList.toggle("active");
+
+            });
+
+        }
+
+        /* =====================================
+           FLOATING BALLOONS
+        ===================================== */
+
+        for (let b = 0; b < 15; b++) {
+
+            const balloon =
+                document.createElement("div");
+
+            balloon.className = "balloon";
+            balloon.innerHTML = "🎈";
+
+            balloon.style.left =
+                Math.random() * 100 + "%";
+
+            balloon.style.fontSize =
+                (Math.random() * 20 + 30) + "px";
+
+            balloon.style.animationDuration =
+                (Math.random() * 8 + 8) + "s";
+
+            document.body.appendChild(balloon);
+        }
+
+        /* =====================================
+           CONFETTI
+        ===================================== */
+
+        const canvas =
+            document.getElementById("confetti");
+
+        if (canvas) {
+
+            const ctx =
+                canvas.getContext("2d");
+
+            canvas.width =
+                window.innerWidth;
+
+            canvas.height =
+                window.innerHeight;
+
+            const particles = [];
+
+            for (let i = 0; i < 200; i++) {
+
+                particles.push({
+
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+
+                    r: Math.random() * 5 + 2,
+
+                    speed:
+                        Math.random() * 3 + 1
+
+                });
+
+            }
+
+            function confetti() {
+
+                ctx.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+                particles.forEach(p => {
+
+                    ctx.beginPath();
+
+                    ctx.fillStyle =
+                        `hsl(${Math.random() * 360},
+                100%,50%)`;
+
+                    ctx.arc(
+                        p.x,
+                        p.y,
+                        p.r,
+                        0,
+                        Math.PI * 2
+                    );
+
+                    ctx.fill();
+
+                    p.y += p.speed;
+
+                    if (p.y > canvas.height) {
+
+                        p.y = -20;
+
+                        p.x =
+                            Math.random() *
+                            canvas.width;
+                    }
+
+                });
+
+                requestAnimationFrame(
+                    confetti
+                );
+            }
+
+            confetti();
+
+            window.addEventListener(
+                "resize",
+                () => {
+
+                    canvas.width =
+                        window.innerWidth;
+
+                    canvas.height =
+                        window.innerHeight;
+
+                }
+            );
+        }
+
+        /* =====================================
+           FIREWORKS
+        ===================================== */
+
+        function launchFireworks() {
+
+            for (let i = 0; i < 40; i++) {
+
+                const fire =
+                    document.createElement("div");
+
+                fire.innerHTML = "✨";
+
+                fire.style.position = "fixed";
+
+                fire.style.left =
+                    Math.random() * 100 + "vw";
+
+                fire.style.top =
+                    Math.random() * 100 + "vh";
+
+                fire.style.fontSize =
+                    "40px";
+
+                fire.style.pointerEvents =
+                    "none";
+
+                fire.style.zIndex = "9999";
+
+                document.body.appendChild(
+                    fire
+                );
+
+                setTimeout(() => {
+
+                    fire.remove();
+
+                }, 1000);
+            }
+        }
+
+        /* =====================================
+           GALLERY LIGHTBOX
+        ===================================== */
+
+        const images =
+            document.querySelectorAll(
+                ".gallery img"
+            );
+
+        const lightbox =
+            document.getElementById(
+                "lightbox"
+            );
+
+        const lightboxImg =
+            document.getElementById(
+                "lightboxImg"
+            );
+
+        if (
+            images.length &&
+            lightbox &&
+            lightboxImg
+        ) {
+
+            images.forEach(img => {
+
+                img.addEventListener(
+                    "click",
+                    () => {
+
+                        lightbox.style.display =
+                            "flex";
+
+                        lightboxImg.src =
+                            img.src;
+
+                    }
+                );
+
+            });
+
+            const closeBtn =
+                document.getElementById(
+                    "closeLightbox"
+                );
+
+            if (closeBtn) {
+
+                closeBtn.addEventListener(
+                    "click",
+                    () => {
+
+                        lightbox.style.display =
+                            "none";
+
+                    }
+                );
+            }
+
+            lightbox.addEventListener(
+                "click",
+                e => {
+
+                    if (
+                        e.target === lightbox
+                    ) {
+
+                        lightbox.style.display =
+                            "none";
+
+                    }
+                }
+            );
+        }
+
+        /* =====================================
+           POPUP MESSAGE
+        ===================================== */
+
+        const popup =
+            document.getElementById(
+                "birthdayPopup"
+            );
+
+        const popupText =
+            document.getElementById(
+                "popupText"
+            );
+
+        if (popup && popupText) {
+
+            images.forEach(img => {
+
+                img.addEventListener(
+                    "dblclick",
+                    () => {
+
+                        popupText.textContent =
+                            img.dataset.message ||
+                            "🎉 HAPPY BIRTHDAY BRO! 🎂";
+
+                        popup.classList.add(
+                            "show"
+                        );
+
+                        launchFireworks();
+
+                        setTimeout(() => {
+
+                            popup.classList.remove(
+                                "show"
+                            );
+
+                        }, 2500);
+
+                    }
+                );
+
+            });
+
+        }
+
+        /* =====================================
+           FLOATING BIRTHDAY BURST
+        ===================================== */
+
+        function createBirthdayBurst(
+            x,
+            y
+        ) {
+
+            const messages = [
+
+                "🎉 HAPPY BIRTHDAY!",
+                "🎂 MANY MORE YEARS!",
+                "🥳 WE LOVE YOU!",
+                "🎁 BEST WISHES!",
+                "❤️ GOD BLESS YOU!",
+                "🎊 ENJOY YOUR DAY!",
+                "🎈 STAY AMAZING!",
+                "✨ KEEP SHINING!"
+
+            ];
+
+            const burst =
+                document.createElement(
+                    "div"
+                );
+
+            burst.innerHTML =
+                messages[
+                Math.floor(
+                    Math.random() *
+                    messages.length
+                )
+                ];
+
+            burst.style.position =
+                "fixed";
+
+            burst.style.left =
+                x + "px";
+
+            burst.style.top =
+                y + "px";
+
+            burst.style.fontSize =
+                "26px";
+
+            burst.style.fontWeight =
+                "900";
+
+            burst.style.color =
+                "#FFD700";
+
+            burst.style.zIndex =
+                "99999";
+
+            burst.style.pointerEvents =
+                "none";
+
+            burst.style.transition =
+                "all 2s ease";
+
+            document.body.appendChild(
+                burst
+            );
+
+            setTimeout(() => {
+
+                burst.style.transform =
+                    "translateY(-180px) scale(1.5)";
+
+                burst.style.opacity =
+                    "0";
+
+            }, 50);
+
+            setTimeout(() => {
+
+                burst.remove();
+
+            }, 2000);
+        }
+
+        /* =====================================
+           IMAGE CLICK BURST
+        ===================================== */
+
+        images.forEach(img => {
+
+            img.addEventListener(
+                "click",
+                e => {
+
+                    createBirthdayBurst(
+                        e.clientX,
+                        e.clientY
+                    );
+
+                }
+            );
+
+        });
+    </script>
+    <div id="birthdayPopup" class="birthday-popup">
+        <div class="popup-content">
+            <span id="popupText"></span>
+        </div>
+    </div>
+</body>
+
+</html>
